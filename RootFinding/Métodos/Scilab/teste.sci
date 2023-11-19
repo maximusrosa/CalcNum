@@ -1,8 +1,16 @@
-// main
+// Define x values
+x = linspace(0, 1, 100);
 
+// Define y values as a function of x
+y = sin(x);
 
-function y = f1(x)
-    y = -1/(x^2-x-2)
-endfunction
+// Create the plot
+plot(x, y);
 
-fsolve_bis(f1, 0, 2)
+// Add grid lines
+xgrid();
+
+// Add labels
+xlabel('x');
+ylabel('sin(x)');
+title('Plot of sin(x) with grid lines');

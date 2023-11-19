@@ -109,7 +109,7 @@ endfunction
 
 //plot(xdata, f1(xdata));
 
-[xEstrela, f_xEstrela, total_itr] = fsolve_bis(f1, 0, 2)
+[xEstrela, f_xEstrela, total_itr] = fsolve_bis(f1, 0, 2);
 
 
 
