@@ -20,8 +20,13 @@ mode(0)     // notação de ponto flutuante em decimal
 
 p = poly([-1,0,0,1,0,0,1], 'y', 'c');
 
-r = roots(p)
+r = roots(p);
 
+// Crie uma matriz lógica que é verdadeira para os elementos de r que são reais
+mask = (imag(r) == 0);
+
+// Use a matriz lógica para selecionar os elementos de r que são reais
+realRoots = r(mask)
 
 ///////////////////////// SOLUÇÃO 2 /////////////////////////////
 

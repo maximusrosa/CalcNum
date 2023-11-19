@@ -1,6 +1,6 @@
-clear
-clc
-mode(0)
+clear       // limpa as variáveis
+clc         // limpa o console
+mode(0)     // notação de ponto flutuante em decimal
 
 // derivada de -1/(x^2-x-2)
 function y = f(x)
