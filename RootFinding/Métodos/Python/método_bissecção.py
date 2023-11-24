@@ -1,7 +1,7 @@
 from numpy import sign, arange
 from matplotlib.pyplot import plot, show, axhline, axvline, grid, xlabel, ylabel
 
-f1 = lambda x: x - 2**(-x)
+f1 = lambda x: sin(-x)
 
 def main():
     xEstrela = my_bisection(f1, 0, 2)

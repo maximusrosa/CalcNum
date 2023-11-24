@@ -22,7 +22,7 @@ p = poly([-1,0,0,1,0,0,1], 'y', 'c');
 
 r = roots(p);
 
-// Crie uma matriz lógica que é verdadeira para os elementos de r que são reais
+// Crie um array do tipo bool com o valor 'true' para os elementos de r que são reais
 mask = (imag(r) == 0);
 
 // Use a matriz lógica para selecionar os elementos de r que são reais
