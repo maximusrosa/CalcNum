@@ -99,17 +99,8 @@ num_itr = cont
 
 endfunction
 
-// main
 
-function y = f1(x)
-    y = -1/(x^2-x-2)
-endfunction
 
-//xdata = linspace (1 , 10 , 50 );
-
-//plot(xdata, f1(xdata));
-
-[xEstrela, f_xEstrela, total_itr] = fsolve_bis(f1, 0, 2);
 
 
 
