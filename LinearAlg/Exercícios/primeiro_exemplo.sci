@@ -36,12 +36,12 @@ y = [0;y]
 x = linspace(0, %pi, N)
 
 scf(0)
-//plot(x,y,'.b') // aproximações
-//plot(x, sin(x), '-r') // função exata
+plot(x,y,'.b') // aproximações
+plot(x, sin(x), '-r') // função exata
 xgrid
 
 
 // Gráfico dos erros nas aproximações
 scf(1)
-plot(x, abs(y - sin(x')) // a linha é pra transpor a matriz pra ajustar as dimensões
+plot(x, abs(y - sin(x'))) // a linha é pra transpor a matriz pra ajustar as dimensões
 xgrid
