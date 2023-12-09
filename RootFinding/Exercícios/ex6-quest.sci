@@ -17,7 +17,10 @@ mode(0)     // notação de ponto flutuante em decimal
 // e) x = 1.815224
 
 
-//////////////////////////// SOLUÇÃO ////////////////////////////////
+function y = f(x)
+    y = x * (x.^2 - x - 2) + 1;
+endfunction
+
 
 function y = g(x)
     y = -1./(x.^2 - x - 2);
@@ -33,16 +36,15 @@ function y = g_linha(x)
 endfunction
 
 
-//  main():
+ptos_fixos = [-1.246012, 0.445041, 1.815224] 
+gl_ptos_fixos = g_linha(ptos_fixos) // cria um vetor com g'(x) aplicada nos respectivos pontos fixos
 
-    ptos_fixos = [-1.246012, 0.445041, 1.815224] 
-    gl_ptos_fixos = g_linha(ptos_fixos)
+// 0 < g'(x) < 1 para Métodos de Ponto Fixo funcionarem
+mask = abs(g_linha(ptos_fixos)) < 1;
 
-    // 0 < g'(x) < 1 para Métodos de Ponto Fixo funcionarem
-    mask = abs(g_linha(ptos_fixos)) < 1;
+convergente = ptos_fixos(mask);
 
-    convergente = ptos_fixos(mask);
+disp('O método de ponto fixo converge para x* = ' + string(convergente))
 
-    disp('Convergente: ' + string(convergente))
-
-    // obs: se f'(x) = 0 a convergência é linear
+// obs: se f'(x) = 0 a convergência é linear
+//      se g'(x) = 0 a convergência é quadrática

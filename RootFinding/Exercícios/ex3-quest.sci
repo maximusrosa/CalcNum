@@ -7,12 +7,12 @@ mode(0)     // notação de ponto flutuante em decimal
 //////////////////////////////////////////////////////////////////////
 
 
-// Exercício 1 - Questionário Equações Não Lineares
-// Utilizando o método da bissecção estime a maior raiz de f(x)= sin(x) + exp(x) com 5 dígitos significativos.
+// Exercício 3 - Questionário Equações Não Lineares
+// Encontre todas as raízes de f(x)= cos(x)+x^2-3x.
 
 
 function y = f(x)
-    y = sin(x)+exp(x)
+    y = x.^2 - 3*x + cos(x)
 endfunction
 
 
@@ -21,7 +21,7 @@ endfunction
 // Plotando a função f(x)
 x = linspace(-3.5, 3.5, 101);
 
-plot(x, sin(x) + exp(x), 'b-', 'LineWidth', 1.25)
+plot(x, f(x), 'b-', 'LineWidth', 1.25)
 
 // add x-axis
 plot([-25, 25], [0, 0], 'k-', 'LineWidth', 1.35)
@@ -35,8 +35,9 @@ xgrid(1);
 //////////////////////////////////////////////////////////////////////
 
 
-// Analisando o gráfico, vemos que a maior raiz está entre -1 e 0
+// Analisando o gráfico, vemos que as raízes estão em (0.35, 0.36): 
+[xEstrela1] = fsolve_bis(f,0.35,0.36)
 
-[xEstrela] = fsolve_bis(f,-1,0)
-printf(' x* = %.5f', xEstrela)
+// e em (3.29, 3.31):
+[xEstrela2] = fsolve_bis(f,3.29,3.31)
 
