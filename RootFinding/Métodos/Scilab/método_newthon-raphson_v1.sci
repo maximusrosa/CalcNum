@@ -94,17 +94,3 @@ fr    = f0
 endfunction
 
 
-// main
-
-function y = f(x) // função da qual queremos encontrar um zero
-    y = 600*(1+x)^12+100*(1+x)^7-1000;   
-//  y =  x*exp(-x^2);
-endfunction
-
-function y = f_linha(x)
-    y = 12*600*(1+x)^11+7*100*(1+x)^6;   
-//  y = exp(-x^2)*(1-2*x^2);
-endfunction
-
-x_inicial = 0.01;
-fsolve_nr(x_inicial,f,f_linha)

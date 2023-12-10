@@ -88,19 +88,8 @@ end
 r     = x1
 fr    = f1
 
-disp('xEstrela = ', r)
-disp("Aproximação alcançada: ", fr)
+//disp('xEstrela = ', r)
+//disp("Aproximação alcançada: ", fr)
 
 endfunction
 
-
-// main
-
-
-function y = f(x) // função da qual queremos encontrar um zero
-    y = x**3 - 9*x + 5;   
-endfunction
-
-x0 = 0.5;
-x1 = 0.1;
-fsolve_sec(x0, x1, f);
