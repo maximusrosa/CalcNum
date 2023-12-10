@@ -19,6 +19,8 @@ mode(0)     // notação de ponto flutuante em decimal
 // e) 2 em ambos os casos
 
 
+// f(x) = 0 <=> g(x) = x
+
 function y = f(x)
     y = x^3 - 4*x^2 + 5*x - 2
 endfunction

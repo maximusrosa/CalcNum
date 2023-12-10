@@ -11,8 +11,10 @@ mode(0)     // notação de ponto flutuante em decimal
 // Encontre todas as raízes de f(x)= cos(x)+x^2-3x.
 
 
+///////////////////////// SOLUÇÃO 1 ///////////////////////////////
+
 function y = f(x)
-    y = x.^2 - 3*x + cos(x)
+    y = x.^2 - 3*x + cos(x);
 endfunction
 
 
@@ -36,8 +38,23 @@ xgrid(1);
 
 
 // Analisando o gráfico, vemos que as raízes estão em (0.35, 0.36): 
-[xEstrela1] = fsolve_bis(f,0.35,0.36)
+xEstrela1 = fsolve_bis(f,0.35,0.36);
+printf(' x1* = %.6f', xEstrela1)
+
+printf(' ;')
 
 // e em (3.29, 3.31):
-[xEstrela2] = fsolve_bis(f,3.29,3.31)
+xEstrela2 = fsolve_bis(f,3.29,3.31);
+printf(' x2* = %.6f', xEstrela2)
 
+
+///////////////////////// SOLUÇÃO 2 ///////////////////////////////
+
+
+// f(x) = 0 <=> g(x) = x
+
+function y = g(x)
+    y = sqrt(3*x - cos(x));
+endfunction
+
+xEstrela = fsolve_pf(g, 3.2);
