@@ -42,7 +42,8 @@ endfunction
 
 
 function y = dg(x)
-    y = 1 - (df(x)*df(x) - f(x)*df2(x)) ./ (df(x))^2
+    //y = 1 - (df(x)*df(x) - f(x)*df2(x)) ./ (df(x))^2
+    y = 1 - (3*x.^2 - 10*x + 9) ./ (3*x - 5).^2
 endfunction
 
 
@@ -53,12 +54,14 @@ endfunction
 // g'(r) = 0 -> converge quadráticamente: o número de dígitos corretos ao menos dobra a cada iteração
 
 printf(" Testando a convergência:\n")
-printf(" dg(1) = %f\n", dg(1))              // deu divisão por zero
+printf(" dg(1) = %f\n", dg(1))              // não deu divisão por zero (obrigado Fernando)
 printf('\n')
 
+printf(" dg(2) = %f\n", dg(2))              // não deu divisão por zero (obrigado Thiago)
+printf('\n')
 
-[xEstrela, num_itr] = fsolve_nr(1.4, f, df)  // converge após 24 iterações
+//[xEstrela, num_itr] = fsolve_nr(1.4, f, df)  // converge após 24 iterações
 
 printf('\n')
 
-[xEstrela, num_itr] = fsolve_nr(2.1, f, df)  // converge após 5 iterações
+//[xEstrela, num_itr] = fsolve_nr(2.1, f, df)  // converge após 5 iterações
