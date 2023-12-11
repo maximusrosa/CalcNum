@@ -9,7 +9,7 @@ mode(0)     // notação de ponto flutuante em decimal
 
 // Exercício 2 - Questionário Equações Não Lineares
 // Utilizando o método da bissecção estime estime (com 5 dígitos significativos) a intersecção 
-// mais a esquerda do plano xy entre as curvas f(x)=sin(x) e g(x)=x^4-2x+1.
+// mais à esquerda do plano xy entre as curvas f(x)=sin(x) e g(x)=x^4-2x+1.
 
 
 function y = f1(x)
@@ -65,4 +65,4 @@ xgrid(1);
 
 [xEstrela] = fsolve_bis(f, 0.33, 0.35);
 
-printf("O ponto de intersecção é: (%f, %f)\n", xEstrela, f1(xEstrela))
+printf("O ponto de intersecção é: (%f, %f)\n", xEstrela, f2(xEstrela))

@@ -1,88 +1,107 @@
-// 1º exercício
-A = zeros(7,7)
-
-A(1,2) = 1; A(1,4) = 10
-A(2,2) = 1; A(2,6) = 15
-A(3,1) = 1; A(3,2) = -1; A(3,7) = -15
-A(4,1) = 1; A(4,3) = 30
-A(5,1) = 1; A(5,5) = 10
-A(6,4) =1; A(6,6) = 1; A(6,7) = 1
-A(7,3) = 1; A(7,5) = 1, A(7,7) = -1
-
-
-b = zeros(7,1)
-b(2) = 3
-b(5) = 3
-
-x = A\b
-
-// 2º exercício
-
-N = [-2 0 -2 0 2 0 0;..
-     0 -1 -1 3 0 0 0;..
-     -1 0 0 2 -3 2 0;..
-     0 0 0 -1 0 -1 3]
-R = [-1.5;-0.91;-1.2;1.6;-0.24;0.88;1.3]
-
-tau = (N*N')\(N*R)
-     
-// 3 º exercício
-
-n = 500
-A = zeros(n,n)
-
-A(1,:) = n:-1:1
-for i=2:n-1
-    A(i,i-1) = 2; A(i,i) = -4; A(i,i+1) = 3
-end
-A(n,:) = 1:n
-
-disp(norm(inv(A),2)*norm(A,2)*1e-9)
-
-
-
-n=58
-A=zeros(n,n)
-b=zeros(n,1)
-A(1,1)=1;A(1,2)=-1
-b(1)=0
-for i=2:n-1
-    A(i,i-1)=2;A(i,i)=-6;A(i,i+1)=3
-    b(i)=sin((i-1)/(n-1)*%pi)
-end
-A(n,n-2)=-1;A(n,n-1)=3;A(n,n)=1
-b(n)=0
-x=A\b
-
-disp(norm(x,2))
-
-
-
-h=0.0125
-n=1/h+1
-A=zeros(n,n)
-b=zeros(n,1)
-xi=linspace(0,1,n)
-for i=2:n-1
-     A(i,i-1)=2*(2-xi(i))+h
-     A(i,i)=-4*(2-xi(i))
-     A(i,i+1)=2*(2-xi(i))-h
-     b(i)=-2*h^2*sin(xi(i)).^2
-end
-A(1,1)=1;A(1,5)=-2;A(1,6)=3
-b(1)=0
-A(n,n)=3;A(n,n-1)=-4;A(n,n-2)=1
-b(n)=0
-u=A\b
-j=0.25*(n-1)+1
-disp(u(j))
-
-
-
-
-
-
-
-
-
-
+function [x,niter]=jacobi(C,x0,tol,Nit,nor)
+    //////////////////////
+    // Método de Jacobi.//
+    //////////////////////
+    
+    // Variável de entrada.
+    //
+    // C   -> matrix completa de um sistema de equações lineares da forma A*x=b:
+    // C=[A b]. A matriz A não pode possuir elementos nulos na diagonal principal
+    // x0  -> aproximação inicial.
+    // tol -> tolerância na diferença relativa entre duas aproximações 
+    // consecutivas (calculada na norma ).
+    // Nit -> limite superior para o número de iteradas.
+    // nor -> norma utilizada na estimativa de tolerância.
+    
+    // Variável de saída.
+    //
+    // x     -> solução do sistema.
+    // niter -> número de iteradas utilizadas.
+    
+    // Variáveis auxiliares.
+    //
+    // n -> número de linhas da matriz completa.
+    // m -> número de colunas da matriz completa.
+    // i -> indexador de linha.
+    //
+    // contador -> guarda o número de iteradas realizadas.
+    // segue    -> variável booliana. Controla o fluxo de execução das iteradas.
+    //
+    // UL      -> A matriz A é decomposta na soma A := D-(U+L), onde D é diagonal
+    // U é triangular superior e L, triangular inferior. A matriz UL é definida
+    // como a soma (U+L).
+    // invD_b  ->  D^(-1)*b.
+    // invD_UL ->  D^(-1)*(U+L).
+    
+    // Inicialização das variáveis auxiliares
+    
+    n=size(C,1);
+    m=size(C,2);
+    segue=%T
+    contador=0
+    
+    // Checagem inicial
+    if (n>m)|(prod(diag(C))==0) then
+        error('Problema sobredeterminado ou singular.',42)
+    end
+    
+    // Caso não tenha sido definida na chamada da função, a aproximação inicial
+    // é definida como o elemento nulo.
+    if ~isdef('x0','local') then
+        x0 = zeros(n,m-n)
+    end
+    
+    // Caso não tenha sido definida na chamada da função, a  tolerância recebe 
+    // o valor 1e-10.
+    if ~isdef('tol','local') then
+        tol = 1e-10
+    end
+    
+    // Caso não tenha sido definida na chamada da função, o limite superior para
+    // as iteradas recebe o valor 10*(m-n)*n^2.
+    if ~isdef('Nit','local') then
+        Nit = 10*(m-n)*n^2
+    end
+    
+    // Caso não tenha sido definida na chamada da função, a norma a ser utilizada
+    // é definida como "inf".
+    if ~isdef('nor','local') then
+        nor = "inf"
+    end
+    
+    // Matriz (U+L).
+    UL=-C(:,1:n)
+    for i=1:n
+        UL(i,i)=0
+    end
+    
+    // Matriz D^(-1)*b.
+    invD_b = zeros(n,m-n)
+    for i =1:n
+        invD_b(i,:) = C(i,n+1:m)/C(i,i)
+    end
+    
+    // Matriz D^(-1)*(U+L).
+    invD_UL=zeros(n,n)
+    for i=1:n
+        invD_UL(i,:) = UL(i,:)/C(i,i)
+    end
+    
+    // Laço principal.
+    
+    while segue
+        contador = contador + 1 
+        x = invD_b + invD_UL*x0
+        segue = ~( (norm(x-x0,nor)<=tol*norm(x,nor))|(contador>=Nit) )
+        x0=x
+    end
+    
+    // Saída de dados.
+    
+    if contador>=Nit then 
+        warning('Não houve convergência.')
+    end
+    
+    niter=contador
+    
+    endfunction

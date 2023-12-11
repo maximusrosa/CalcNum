@@ -4,7 +4,7 @@ mode(0)
 
 // quanto menor for phi_linha(x), menos iterações serão necessárias
 
-function [r,fr,num_itr] = fsolve_nr(x0,%fun,%dfun,tol,max_itr) 
+function [r, num_itr, fr] = fsolve_nr(x0,%fun,%dfun,tol,max_itr) 
 ///////////////////////////
 // Método Newton-Raphson.//
 ///////////////////////////
@@ -21,8 +21,9 @@ function [r,fr,num_itr] = fsolve_nr(x0,%fun,%dfun,tol,max_itr)
 // Variáveis de saída.
 
 // r        -> solução aproximada.
-// fr       -> valor de %fun em r.
 // num_itr    -> número de iteradas.
+// fr       -> valor de %fun em r.
+
 
 // Variáveis auxiliares.
 

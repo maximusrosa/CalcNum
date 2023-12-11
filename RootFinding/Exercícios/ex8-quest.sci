@@ -12,7 +12,6 @@ mode(0)     // notação de ponto flutuante em decimal
 // com 7 dígitos significativos e x1 = 1.
 
 
-
 function y = f(x)
     y = x.^2 - 6
 endfunction
@@ -42,6 +41,6 @@ xgrid(1);
 
 
 // Analisando o gráfico, vemos que a função é simétrica e existe uma raiz entre 2.4 e 2.5.
-[xEstrela] = fsolve_nr(1, f, df);
+xEstrela = fsolve_nr(1, f, df);
 printf("A raiz da função f(x) = x^2 - 6 é: %.7f\n", xEstrela)
 
