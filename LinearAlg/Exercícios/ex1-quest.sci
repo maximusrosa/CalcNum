@@ -1,6 +1,14 @@
+///////////////////////// INICIALIZAÇÃO  /////////////////////////////
+
+//clear  
+clc         // limpa o console
+mode(0)     // notação de ponto flutuante em decimal
+
+//////////////////////////////////////////////////////////////////////
+
 // Exercício 1 - Questionário Sistema de Equações Lineares
 
-n = 5;
+n = 150;
 A = zeros(n, n);
 
 A(1,1) = 2;
@@ -30,10 +38,10 @@ for i = 1: n
     b(i) = 0.01 * cos(0.05 * i);
 end
 
-disp("Matriz A:")
-disp(A)
-disp("Vetor b:")
-disp(b)
+//disp("Matriz A:")
+//disp(A)
+//disp("Vetor b:")
+//disp(b)
 
 disp("Maior componente do vetor solução do sistema:")
 disp(max(A\b))
