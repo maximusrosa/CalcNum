@@ -38,5 +38,5 @@ xgrid(1);
 // Analisando o gráfico, vemos que a maior raiz está entre -1 e 0
 
 xEstrela = fsolve_bis(f,-1,0);
-printf(' x* = %.5f', xEstrela)
+printf(' x* = %.6f', xEstrela)
 

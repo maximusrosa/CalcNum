@@ -21,7 +21,7 @@ A(n,n-1) = -1;
 for i = 2: n - 1
     A(i, i-1) = -1;
     A(i,i+1) = -1;
-    A(i,i) = 2;
+    A(i,i) = 2; 
 end
 
 // Exemplo de matriz nesse formato:

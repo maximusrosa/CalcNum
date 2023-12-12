@@ -84,4 +84,4 @@ xgrid(1);
 
 xEstrela = fsolve_bis(f, 0.70, 0.75);
 
-printf("O ponto de intersecção é: (%f, %f)\n", xEstrela, f2(xEstrela))
+printf("O ponto de intersecção é: (%.6f, %.6f)\n", xEstrela, f2(xEstrela))

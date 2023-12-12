@@ -63,6 +63,6 @@ xgrid(1);
 // Analisando o gráfico, podemos ver que a intersecção mais a esquerda do plano xy entre as curvas f(x)= sin(x) e g(x)=x^4-2x+1
 // está entre os pontos x = 0.33 e x = 0.35
 
-[xEstrela] = fsolve_bis(f, 0.33, 0.35);
+xEstrela = fsolve_bis(f, 0.33, 0.35);
 
-printf("O ponto de intersecção é: (%f, %f)\n", xEstrela, f2(xEstrela))
+printf("O ponto de intersecção é: (%.6f, %.6f)\n", xEstrela, f2(xEstrela))

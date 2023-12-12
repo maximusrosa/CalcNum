@@ -42,5 +42,5 @@ xgrid(1);
 
 // Analisando o gráfico, vemos que a função é simétrica e existe uma raiz entre 2.4 e 2.5.
 xEstrela = fsolve_nr(1, f, df);
-printf("A raiz da função f(x) = x^2 - 6 é: %.7f\n", xEstrela)
+printf("A raiz da função f(x) = x^2 - 6 é: %.8f\n", xEstrela)
 
