@@ -42,7 +42,7 @@ plot([-25, 25], [0, 0], 'k-', 'LineWidth', 1.35)
 // add y-axis
 plot([0, 0], [-25, 25], 'k-', 'LineWidth', 1.35)
 
-// Plotando a função g(x)
+// Plotando a função f2(x)
 x = linspace(-3.5, 3.5, 101);
 
 plot(x, f2(x), 'r-', 'LineWidth', 1.25)

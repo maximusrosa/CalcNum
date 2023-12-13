@@ -14,7 +14,7 @@ A = zeros(n, n);
 // Primeira Linha
 A(1,1) = 1; A(1,2) = -1;
 
-// miolo
+// Miolo
 for i = 2: n - 1
     A(i, i-1) = 2;
     A(i,i) = -6;
@@ -38,9 +38,9 @@ A(n, n-2) = -1; A(n, n-1) = 3; A(n, n) = 1;
 //  0   0   0   0   0   0   0  -1   3   1
 
 
-// (b)i = sin((i-1/n-1) * %pi) para i = 1, 2, ..., n
+// (b)i = sin((i-1) / (n-1) * %pi) para i = 1, 2, ..., n
 for i = 1: n
-    b(i) = sin((i-1./n-1) * %pi);
+    b(i) = sin((i-1)./(n-1) * %pi);
 end
 
 // Exemplo de vetor b:
@@ -49,7 +49,7 @@ end
 //  -0.7071068
 //   0.7071068
 
-sol_padrão = A\b;
+sol_padrão = A\b
 
-norm(gpp([A, b]), 2)
+//norm(gpp([A, b]), 2)
 
