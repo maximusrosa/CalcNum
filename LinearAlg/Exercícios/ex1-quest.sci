@@ -11,13 +11,13 @@ mode(0)     // notação de ponto flutuante em decimal
 n = 150;
 A = zeros(n, n);
 
-A(1,1) = 2;
-A(n,n) = 2;
+// Primeira Linha
+A(1,1) = 2; A(1,2) = -1;
 
-A(1,2) = -1;
-A(n,n-1) = -1;
+// Última Linha
+A(n,n-1) = -1; A(n,n) = 2;
 
-// miolo
+// Miolo
 for i = 2: n - 1
     A(i, i-1) = -1;
     A(i,i+1) = -1;
