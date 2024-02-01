@@ -46,12 +46,17 @@ function y = lagrange(xi,yi,x)
 endfunction
 */
 
+/*
+// Pontos conhecidos
 px = [10 15 20 25 30 35]
 py = [105 172 253 352 473 619]
 
+// Interpolação no ponto x = 12
 y = lagrange(px,py,12)
 disp(y)
 
+
+// Interpolação no ponto x = 22
 y = lagrange(px,py,22)
 disp(y)
 
@@ -61,6 +66,7 @@ disp(y)
 y = lagrange(px,py,10)
 disp(y)
 
+// Pontos conhecidos
 px = [250 330 412 485 617]
 py = [5720 5260 4450 2780 1506]
 
