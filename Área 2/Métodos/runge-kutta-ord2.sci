@@ -4,8 +4,8 @@ function y = runge_kutta_ord2(f, a, b, y0, n)
     y(1) = y0;
     x = a;
     for i = 1:n
-        k1 = h * f(x, y(i));
-        k2 = h * f(x + h, y(i) + k1);
+        k1 = derivada de f(x, y);
+        k2 = f(x + h, y(i) + h*k1);
         y(i+1) = y(i) + 0.5 * (k1 + k2);
         x = x + h;
     end
