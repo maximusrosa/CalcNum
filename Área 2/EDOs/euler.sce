@@ -1,6 +1,6 @@
 // Função para realizar o método de Euler para resolver uma equação diferencial ordinária de primeira ordem.
 // Parâmetros:
-//   - y: valor inicial da variável dependente
+//   - y: valor inicial da variável dependente (função primitiva)
 //   - x: valor inicial da variável independente
 //   - x_final: valor final da variável independente
 //   - f: função que define a equação diferencial na forma f(x,y), ou seja: dy/dx = f(x,y)
