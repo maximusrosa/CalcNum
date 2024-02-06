@@ -1,12 +1,13 @@
 // Encontre uma curva da forma y = A * exp(x) que melhor se ajusta aos pontos
-// (1,2); (2,3) e (3,5).
+// (0,1), (1,3), (2,4), (3,6), (4,5) e (7,7).
+
 
 x = [0 1 2 3 4 7]
 y = [1 3 4 6 5 7]
 
-n = 2
+p = 2
 
-a = minquadlin(x,y,n)
+a = minquadlin(x,y,p)
 
 // Plotando o gráfico da curva de ajuste
 
