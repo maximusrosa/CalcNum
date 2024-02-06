@@ -1,5 +1,3 @@
-clear
-
 x = [0 1 2 3 4 7]'
 y = [1 3 4 6 5 7]'
 
@@ -15,4 +13,12 @@ a = inv(M) * b;
 A = exp(a(1));
 
 XX = 0: 0.1 :10;
-YY = A*exp(a(2)*XX)
+YY = A * exp(a(2)*XX) // pontos da curva
+
+plot(XX, YY, 'b')
+plot(x, y, 'r*')
+xgrid
+
+disp('A * e^(b*x)')
+disp(A)
+disp(a(2))
