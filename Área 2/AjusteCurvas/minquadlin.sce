@@ -3,17 +3,17 @@
 // Inputs:
 //   - x: Vector of x-coordinates of the data points.
 //   - y: Vector of y-coordinates of the data points.
-//   - n: Degree of the polynomial to fit.
+//   - p: Degree of the polynomial to fit.
 // Output:
 //   - a: Coefficients of the polynomial fit.
 
-function a = minquadlin(x, y, n)
+function a = minquadlin(x, y, p)
     x = x';  // Transpose x
     y = y';  // Transpose y
 
     // constói a matriz de vandermonde
-    for i=1:n+1
-        for j=1:n+1
+    for i=1:p+1
+        for j=1:p+1
             V (i,j) = sum(x.^(i+j-2));
         end
     end
