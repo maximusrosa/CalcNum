@@ -18,7 +18,7 @@ function a = minquadlin(x, y, n)
         end
     end
 
-    // constói o vetor de termos independentes
+    // constói o vetor b
     for i = 1:n+1
         b(i) = sum(y.*x.^(i-1));
     end
