@@ -4,7 +4,7 @@
 x = [0 1 2 3 4 7]
 y = [1 3 4 6 5 7]
 
-n = 1 // grau do polinômio de ajuste
+p = 1 // grau do polinômio de ajuste
 
 a = minquadlin(x,y,p)
 
@@ -12,7 +12,7 @@ a = minquadlin(x,y,p)
 XX = 0: 0.1 :10;
 YY = 0;
 
-for i=1:n+1
+for i=1:p+1
     YY = YY + a(i)*XX.^(i-1);
 end
     
