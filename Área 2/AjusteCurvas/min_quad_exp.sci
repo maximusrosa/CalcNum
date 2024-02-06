@@ -1,24 +1,18 @@
 clear
 
-x = 0:0.1:1
-y = sin(x') + 1
-n = length(x)
+x = [0 1 2 3 4 7]'
+y = [1 3 4 6 5 7]'
+
+// Matriz
+M = [n      sum(x)
+     sum(x) sum (x.^2)]
 
-grau_p = 1
+b = [sum(log(y))
+     sum(x.*log(y))]
 
-// Matriz A
-for i=1:grau_p+1
-    for j=1:grau_p+1
-        A(i,j) = sum(x.^(i+j-2))
-    end
-end
+a = inv(M) * b;
 
-y = log(y) // Função tranformação (da tabela)
+A = exp(a(1));
 
-// Vetor B
-for i = 1:grau_p+1
-    b(i)= sum(y.*(x.^(i-1))')
-end
-
-X = inv(A)*b
-disp(X, "SOLUÇÃO SISTEMA:")
+XX = 0: 0.1 :10;
+YY = A*exp(a(2)*XX)
