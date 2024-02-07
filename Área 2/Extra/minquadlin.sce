@@ -1,3 +1,5 @@
+// ESSA PORRA NÃO FUNCIONA PRA p != 2
+
 // Function: minquadlin
 // Description: Performs linear least squares fitting using the method of minimum squares.
 // Inputs:
