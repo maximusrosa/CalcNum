@@ -4,27 +4,31 @@ function y = runge_kutta_ord2(f, a, b, y0, n)
     y(1) = y0;
     x = a;
     for i = 1:n
-        k1 = derivada de f(x, y);
+        k1 = f(x, y(i));
         k2 = f(x + h, y(i) + h*k1);
-        y(i+1) = y(i) + 0.5 * (k1 + k2);
+        y(i+1) = y(i) + h/2 * (k1 + k2);
+        printf("x = %.10f, y = %.10f\n", x, y(i+1));
         x = x + h;
     end
 endfunction
 
-/*
-Assuma que a curva P(t) para uma determinada população obedeça 
-a equação diferencial para uma curva logística P' = a . P - b . P² 
-Seja t o tempo em anos e h = 10 o passo. Os valores a = 0.02 e b = 0,0004 
-produzem um modelo para a população. Considerando que no ano de 1990 a 
-população era de 76,1 milhões, obtenha usando o runge-kutta 2 
-uma estimativa para essa população no ano de 2010
-*/
-
-function z = f(t, P)
-    a = 0.02;  // tá dando errado e tem que rever essa função. o resultado dos outros tava dando 107 milhões por aí
-    b = 0.0004;
-    z = a*P - b*P^2;    // função cresimento da população.
+function z = f(x, y)
+    z = -x*y
 endfunction
 
-P = runge_kutta_ord2(f, 1990, 2010, 76.1, 2);
-disp('População estimada em 2010: ', P(3));
+// Intervalo
+a = 0; // Inicial
+b = 1; // Final
+
+// Valor inicial
+y0 = 1;
+
+// Número de passos
+n = 10;
+
+P = runge_kutta_ord2(f, a, b, y0, n);
+// P é a matriz com as respostas
+// P(0) é o y inicial, P(numero_de_passos + 1) é o y final
+// Tem 10 passos, então o valor final é P(11)
+
+
