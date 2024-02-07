@@ -1,6 +1,6 @@
 // Função para realizar o método de Euler para resolver uma equação diferencial ordinária de primeira ordem.
 // Parâmetros:
-//   - y: valor inicial da variável dependente
+//   - y: valor inicial da variável dependente (função primitiva)
 //   - x: valor inicial da variável independente
 //   - x_final: valor final da variável independente
 //   - f: função que define a equação diferencial na forma f(x,y), ou seja: dy/dx = f(x,y)
@@ -41,6 +41,4 @@ h = 0.1; // tamanho do intervalo de cada iteração, ou seja, o "passo" (dado no
 
 
 // O resultado é representado como a solução aproximada de uma equação diferencial em um ponto específico.
-sol_aproximada = euler(y0, x0, x_final, f, h) 
-
-disp(sol_aproximada)
+disp(euler(y0, x0, x_final, f, h))
