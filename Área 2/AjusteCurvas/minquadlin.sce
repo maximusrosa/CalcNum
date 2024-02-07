@@ -1,26 +1,28 @@
 // Function: minquadlin
 // Description: Performs linear least squares fitting using the method of minimum squares.
 // Inputs:
-//   - x: Vector of x-coordinates of the data points.
-//   - y: Vector of y-coordinates of the data points.
+//   - X: Vector of X-coordinates of the data points.
+//   - Y: Vector of Y-coordinates of the data points.
 //   - p: Degree of the polynomial to fit.
 // Output:
-//   - a: Coefficients of the polynomial fit.
+//   - a: Coefficients of the polYnomial fit.
 
-function a = minquadlin(x, y, p)
-    x = x';  // Transpose x
-    y = y';  // Transpose y
-
+function a = minquadlin(X, Y, p)
+    X = X';  // Transpose X
+    Y = Y';  // Transpose Y
+    
+    n = size(X, 1);
+    
     // constói a matriz de vandermonde
     for i=1:p+1
         for j=1:p+1
-            V (i,j) = sum(x.^(i+j-2));
+            V(i,j) = sum(X.^(i+j-p));
         end
     end
 
     // constói o vetor b
-    for i = 1:n+1
-        b(i) = sum(y.*x.^(i-1));
+    for i = 1:p+1
+        b(i) = sum(Y.*X.^(i-1));
     end
 
     // resolve o sistema linear
