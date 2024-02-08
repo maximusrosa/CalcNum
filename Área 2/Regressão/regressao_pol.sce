@@ -30,7 +30,9 @@ function coef = regressao_pol(X,Y,p)
     end
     
     coef = M\B
+
 endfunction
+
 
 /*
 Testes

@@ -17,8 +17,16 @@ for i=1:p+1
 end
     
 plot(XX, YY, 'b')
-plot(x, y, 'r*')
+plot(X, Y, 'r*')
 xgrid
 
 disp('Coeficientes:')
-disp(a)
+printf('a0 = %f\n', a(1))
+printf('a1 = %f\n', a(2))
+printf('a2 = %f\n', a(3))
+
+p = poly(a,"x","coeff")
+disp(p)
+
+
+

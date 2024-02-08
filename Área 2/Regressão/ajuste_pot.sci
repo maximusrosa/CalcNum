@@ -11,14 +11,16 @@ a = regressao_pol(log(X),log(Y),p)
 // Plotando o gráfico da curva de ajuste
 
 A = exp(a(1))
+b = a(2)
 
 XX = 0: 0.1 :10;
-YY = A.*XX.^a(2);
+YY = A.*XX.^b;
 
 
 plot(XX, YY, 'b')
-plot(x, y, 'r*')
+plot(X, Y, 'r*')
 xgrid;
 
-disp('Coeficientes:')
-disp(a)
+disp('Coeficientes em A * x^b:')
+printf('A = %f\n', A)
+printf('b = %f\n', b)

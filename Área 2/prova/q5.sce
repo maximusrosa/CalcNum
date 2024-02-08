@@ -13,24 +13,25 @@ function y = runge_kutta_ord2(f, a, b, y0, n)
 endfunction
 
 function z = f(x, y)
-    z = (x*y - 1)^(1/2)
+    z = 2 - x +3*y
 endfunction
 
 // Intervalo
-a = 1; // Inicial
-b = 1.4; // Final
+a = 0 // Inicial
+b = 0.4; // Final
 
 // Valor inicial
-y0 = 2;
+y0 = 1;
 
 // Número de passos
-n = 10;
+n = 4;
 
 P = runge_kutta_ord2(f, a, b, y0, n);
 // P é o vetor com as respostas
 // P(0) é o y inicial, P(numero_de_passos + 1) é o y final
 // Tem 10 passos, então o valor final é P(11)
 
-disp(P(11))
+disp(P(5))
+
 
 

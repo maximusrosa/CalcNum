@@ -17,7 +17,7 @@ function coef = interpol_vander(X,Y)
     coef = MtxVander\Y
 endfunction
 
-/*
+
 // Testes
 
 X = [-1;0;2]
@@ -28,4 +28,4 @@ coef = interpol_vander(X,Y)
 p = poly(coef,"x","coeff")
 
 disp(p)
-*/
+

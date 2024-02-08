@@ -9,6 +9,7 @@
 //   - y: valor da variável dependente no ponto final x_final
 function y = euler(y, x, x_final, f, h)
     n = (x_final - x)/h;
+    
     for i = 1:n
         y = y + h * f(x, y);
         x = x + h;
@@ -20,7 +21,7 @@ endfunction
 
 ////////////////////////////////////// EXEMPLO //////////////////////////////////////
 
-// Obtenha f(x) = y(x) = y(0.2) da função y' = 2 - x + 3y 
+// Obtenha y(0.2) a partir da função y' = 2 - x + 3y 
 // com y(0) = 1, usando o método de Euler com passo h = 0.1
 
 // Ou seja, eu tenho a DERIVADA de y(x) (não a função y)

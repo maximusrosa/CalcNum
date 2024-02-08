@@ -9,3 +9,20 @@ function S = trapezio_conj(a, b, f, n)
         S = S + trapezio(x(i), x(i+1), f);  // ...adiciona a área do trapézio sob a curva entre esses dois pontos à soma total
     end
 endfunction
+
+function S = num_integral_trapezio(f,a,b,n) //f = função; a = inicio; b = fim; n = numero de intervalos
+    h = (b-a)/n // tamanho de cada intervalo
+    x = linspace(a,b,n+1) //calcula os pontos (1,2,3,...) dado o intervalo
+    S = 0
+    for i = 1:n
+        x1 = x(i)
+        x2 = x(i+1)
+        
+        A1 = 1/2
+        A2 = 1/2
+        
+        dS = (f(x1)+f(x2))/2*h //área do trapézio <<<< versão curta, a fórmula bonita é (A1*f(x1)+A2*f(x2))/h, sendo que A1 = A2 = 1/2 >>>>
+        
+        S = S+dS //área total
+    end
+endfunction
